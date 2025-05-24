@@ -1,34 +1,29 @@
 const BASE_URL = 'http://localhost:3001'
 
-// Получить все записи из schedules (для клиентов)
 export async function fetchSchedules() {
   const res = await fetch(`${BASE_URL}/schedules`)
   if (!res.ok) throw new Error('Ошибка при загрузке расписания')
   return res.json()
 }
 
-// Получить записи из schedules по email клиента
 export async function fetchBookingsByEmail(email) {
   const res = await fetch(`${BASE_URL}/schedules?email=${encodeURIComponent(email)}`)
   if (!res.ok) throw new Error('Ошибка при загрузке записей клиента')
   return res.json()
 }
 
-// Получить ВСЕ bookings (для тренера)
 export async function fetchAllBookings() {
   const res = await fetch(`${BASE_URL}/bookings`)
   if (!res.ok) throw new Error('Ошибка при загрузке всех бронирований')
   return res.json()
 }
 
-// Получить расписание тренера
 export async function fetchTrainerSchedule() {
   const res = await fetch(`${BASE_URL}/trainerSchedule`)
   if (!res.ok) throw new Error('Ошибка при загрузке расписания тренера')
   return res.json()
 }
 
-// Создать новую запись в расписании тренера
 export async function createTrainerScheduleItem(item) {
   const res = await fetch(`${BASE_URL}/trainerSchedule`, {
     method: 'POST',
@@ -39,7 +34,6 @@ export async function createTrainerScheduleItem(item) {
   return res.json()
 }
 
-// Обновить запись тренера
 export async function updateTrainerScheduleItem(id, updatedData) {
   const res = await fetch(`${BASE_URL}/trainerSchedule/${id}`, {
     method: 'PUT',
@@ -50,7 +44,6 @@ export async function updateTrainerScheduleItem(id, updatedData) {
   return res.json()
 }
 
-// Удалить запись тренера
 export async function deleteTrainerScheduleItem(id) {
   const res = await fetch(`${BASE_URL}/trainerSchedule/${id}`, {
     method: 'DELETE',
@@ -58,7 +51,6 @@ export async function deleteTrainerScheduleItem(id) {
   if (!res.ok) throw new Error('Ошибка при удалении элемента расписания')
 }
 
-// Создать бронирование (для клиента)
 export async function createBooking(data) {
   const res = await fetch(`${BASE_URL}/schedules`, {
     method: 'POST',
@@ -69,8 +61,6 @@ export async function createBooking(data) {
   return res.json()
 }
 
-
-// Обновить бронирование
 export async function updateBooking(id, updatedData) {
   const res = await fetch(`${BASE_URL}/schedules/${id}`, {
     method: 'PUT',
@@ -81,7 +71,6 @@ export async function updateBooking(id, updatedData) {
   return res.json()
 }
 
-// Удалить бронирование
 export async function deleteBooking(id) {
   const res = await fetch(`${BASE_URL}/schedules/${id}`, {
     method: 'DELETE',

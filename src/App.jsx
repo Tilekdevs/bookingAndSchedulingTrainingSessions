@@ -13,13 +13,8 @@ function App() {
       <ToastContainer position="top-right" autoClose={3000} />
       <BrowserRouter>
         <Routes>
-          {/* Всегда направляем пользователя на /login */}
           <Route path="/" element={<Navigate to="/login" replace />} />
-
-          {/* Страница входа доступна всем */}
           <Route path="/login" element={<Login />} />
-
-          {/* Доступ только для авторизованных пользователей */}
           <Route
             path="/dashboard"
             element={
