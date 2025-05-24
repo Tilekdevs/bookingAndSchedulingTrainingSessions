@@ -1,0 +1,38 @@
+{
+  "schedules": [
+    {
+      "client": "Tilek",
+      "date": "2025-05-09",
+      "time": "15:40",
+      "workout": "dt3re3333",
+      "id": "9591"
+    },
+    {
+      "id": "1d67",
+      "client": "Tilek",
+      "date": "2025-05-25",
+      "time": "13:07",
+      "workout": "3423244235",
+      "email": "client@example.com"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "3b7e",
+      "client": "Tilek",
+      "date": "2025-05-08",
+      "time": "14:35",
+      "workout": "dsfdsfdsdsf",
+      "email": "client@example.com"
+    },
+    {
+      "id": "9094",
+      "client": "Tilek",
+      "date": "2025-05-31",
+      "time": "06:00",
+      "workout": "xcgdsds",
+      "email": "client@example.com"
+    }
+  ],
+  "trainerSchedule": []
+}

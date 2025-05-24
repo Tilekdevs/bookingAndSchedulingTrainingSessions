@@ -1,0 +1,36 @@
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.booking-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
+
+.booking-input {
+  margin-top: 6px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  background-color: #27ae60;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #219150;
+}
