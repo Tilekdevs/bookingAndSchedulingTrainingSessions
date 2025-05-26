@@ -36,7 +36,7 @@ export default function Dashboard() {
         } else if (user.role === 'trainer') {
           const [schedules, trainerSchedules, bookings] = await Promise.all([
             fetchSchedules(),
-            fetchTrainerSchedule(),
+            fetchTrainerSchedule(user.token),
             fetchAllBookings(),
           ])
           const merged = [...schedules, ...trainerSchedules, ...bookings]

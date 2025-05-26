@@ -1,107 +1,95 @@
-.container {
-  max-width: 800px;
+.schedule-manager-page {
+  max-width: 600px;
   margin: 40px auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-family: Arial, sans-serif;
+  padding: 0 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
 
   h1 {
-    font-size: 28px;
-  }
-}
-
-.btn {
-  border: none;
-  border-radius: 4px;
-  padding: 10px 16px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-
-  &.btn-red {
-    background-color: #e74c3c;
-    color: white;
-    &:hover {
-      background-color: #c0392b;
-    }
-  }
-
-  &.btn-green {
-    background-color: #27ae60;
-    color: white;
-    &:hover {
-      background-color: #219150;
-    }
-  }
-
-  &.btn-yellow {
-    background-color: #f1c40f;
-    color: #222;
-    &:hover {
-      background-color: #d4ac0d;
-    }
-  }
-
-  &.btn-gray {
-    background-color: #95a5a6;
-    color: white;
-    &:hover {
-      background-color: #7f8c8d;
-    }
-  }
-
-  &.btn-small {
-    padding: 6px 10px;
-    font-size: 14px;
-  }
-}
-
-.schedule-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.input {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.form-actions {
-  display: flex;
-  gap: 12px;
-}
-
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px 12px;
     text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
   }
 
-  th {
-    background-color: #f8f8f8;
+  .schedule-form {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+
+      label {
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      input[type='date'],
+      input[type='time'] {
+        padding: 8px 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #3498db;
+          box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+        }
+      }
+    }
+
+    .submit-button {
+      display: inline-block;
+      padding: 10px 18px;
+      background-color: #3498db;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
   }
 
-  .actions-cell {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
+  .schedules-section {
+    h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 6px;
+    }
+
+    .schedule-card {
+      background: #ecf0f1;
+      border-radius: 6px;
+      padding: 15px 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      p {
+        margin: 5px 0;
+        font-size: 16px;
+
+        strong {
+          color: #34495e;
+        }
+      }
+    }
+
+    p {
+      color: #7f8c8d;
+      font-style: italic;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import '../assets/styles/Login.scss'
 
@@ -17,7 +17,7 @@ export default function Login() {
       await login(email, password)
       navigate('/dashboard')
     } catch (err) {
-      setError(err)
+      setError(err.message || 'Ошибка входа')
     }
   }
 
@@ -49,6 +49,9 @@ export default function Login() {
         >
           {loading ? 'Загрузка...' : 'Войти'}
         </button>
+        <p className="register-login-link">
+          Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
+        </p>
       </form>
     </div>
   )

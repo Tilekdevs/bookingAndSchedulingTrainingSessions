@@ -1,4 +1,38 @@
-const BASE_URL = 'http://localhost:3001'
+const BASE_URL = 'http://localhost:8086'
+
+export async function registerUser(data) {
+  const response = await fetch('http://localhost:8086/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    const message = await response.text();
+    throw new Error(message || 'Ошибка при регистрации');
+  }
+
+  return response.text();
+}
+
+export async function loginUser(data) {
+  const response = await fetch('http://localhost:8086/auth/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+
+  if (!response.ok) {
+    const message = await response.text()
+    throw new Error(message || 'Ошибка при входе')
+  }
+
+  return response.json() // тут будет { token, email, role }
+}
+
+
 
 export async function fetchSchedules() {
   const res = await fetch(`${BASE_URL}/schedules`)
@@ -18,21 +52,31 @@ export async function fetchAllBookings() {
   return res.json()
 }
 
-export async function fetchTrainerSchedule() {
-  const res = await fetch(`${BASE_URL}/trainerSchedule`)
-  if (!res.ok) throw new Error('Ошибка при загрузке расписания тренера')
-  return res.json()
+export async function fetchTrainerSchedule(token) {
+  const res = await fetch(`${BASE_URL}/trainerSchedule`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  });
+  if (!res.ok) throw new Error('Ошибка при загрузке расписания тренера');
+  return res.json();
 }
 
-export async function createTrainerScheduleItem(item) {
-  const res = await fetch(`${BASE_URL}/trainerSchedule`, {
+export async function createTrainerScheduleItem(data, token) {
+  const response = await fetch(`${BASE_URL}/trainerSchedule`, { 
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(item),
-  })
-  if (!res.ok) throw new Error('Ошибка при создании элемента расписания')
-  return res.json()
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  });
+  if (!response.ok) {
+    throw new Error('Ошибка создания расписания');
+  }
+  return await response.json();
 }
+
 
 export async function updateTrainerScheduleItem(id, updatedData) {
   const res = await fetch(`${BASE_URL}/trainerSchedule/${id}`, {
@@ -44,12 +88,16 @@ export async function updateTrainerScheduleItem(id, updatedData) {
   return res.json()
 }
 
-export async function deleteTrainerScheduleItem(id) {
+export async function deleteTrainerScheduleItem(id, token) {
   const res = await fetch(`${BASE_URL}/trainerSchedule/${id}`, {
     method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   })
   if (!res.ok) throw new Error('Ошибка при удалении элемента расписания')
 }
+
 
 export async function createBooking(data) {
   const res = await fetch(`${BASE_URL}/schedules`, {

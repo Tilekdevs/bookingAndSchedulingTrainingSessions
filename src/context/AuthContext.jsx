@@ -1,13 +1,8 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import { createContext, useContext, useState } from 'react'
+import { loginUser } from '../api'
 
 const AuthContext = createContext()
-
-const mockUsers = [
-  { email: 'client@example.com', password: '123456', role: 'client' },
-  { email: 'trainer@example.com', password: '123456', role: 'trainer' },
-]
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
@@ -17,25 +12,25 @@ export function AuthProvider({ children }) {
 
   const [loading, setLoading] = useState(false)
 
-  const login = (email, password) => {
+  const login = async (email, password) => {
     setLoading(true)
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const found = mockUsers.find(
-          u => u.email === email && u.password === password
-        )
+    try {
+      const response = await loginUser({ email, password })
 
-        if (found) {
-          const { password, ...userData } = found 
-          setUser(userData)
-          localStorage.setItem('user', JSON.stringify(userData))
-          resolve(userData)
-        } else {
-          reject('Неверный email или пароль')
-        }
-        setLoading(false)
-      }, 500)
-    })
+      const userData = {
+        email: response.email,
+        role: response.role,
+        token: response.token,
+      }
+
+      setUser(userData)
+      localStorage.setItem('user', JSON.stringify(userData))
+      setLoading(false)
+      return userData
+    } catch (error) {
+      setLoading(false)
+      throw error
+    }
   }
 
   const logout = () => {
