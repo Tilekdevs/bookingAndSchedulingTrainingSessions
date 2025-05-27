@@ -1,7 +1,7 @@
-const BASE_URL = 'http://localhost:8086'
+const BASE_URL = 'http://77.105.133.23:8086'
 
 export async function registerUser(data) {
-  const response = await fetch('http://localhost:8086/auth/register', {
+  const response = await fetch(`${BASE_URL}/auth/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -16,7 +16,7 @@ export async function registerUser(data) {
 }
 
 export async function loginUser(data) {
-  const response = await fetch('http://localhost:8086/auth/login', {
+  const response = await fetch(`${BASE_URL}/auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
