@@ -1,4 +1,4 @@
-const BASE_URL = 'http://77.105.133.23:8086'
+const BASE_URL = '/api'
 
 export async function registerUser(data) {
   const response = await fetch(`${BASE_URL}/auth/register`, {
