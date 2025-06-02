@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
@@ -97,7 +98,7 @@ export default function ScheduleManager() {
 					<p>Нет расписания</p>
 				) : (
 					schedules.map(schedule => (
-						<div key={schedule.id} className='schedule-card'>it
+						<div key={schedule.id} className='schedule-card'>
 							<p>
 								<strong>Дата:</strong> {schedule.date}
 							</p>
