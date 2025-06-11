@@ -85,11 +85,82 @@
           color: #34495e;
         }
       }
+
+      .delete-button {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        color: #721c24;
+        padding: 0.25em 0.5em;
+        cursor: pointer;
+        border-radius: 4px; // Optional: for rounded corners
+        font-size: 0.9em; // Optional: to make it a bit smaller than other text
+        margin-top: 10px; // Optional: to add some space above it
+
+        &:hover {
+          background-color: #f1b0b7;
+          border-color: #e08f98;
+        }
+      }
     }
 
     p {
       color: #7f8c8d;
       font-style: italic;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-manager-page {
+    margin: 20px auto;
+    padding: 0 15px;
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .schedule-form {
+      padding: 15px;
+      margin-bottom: 30px;
+
+      .input-group {
+        label {
+          font-size: 0.95em; // Slightly smaller
+        }
+
+        input[type='date'],
+        input[type='time'] {
+          font-size: 15px;
+          padding: 10px 10px; // Adjust padding for easier touch
+        }
+      }
+
+      .submit-button {
+        width: 100%;
+        padding: 12px 15px; // Adjust padding for full width
+        font-size: 1em;
+      }
+    }
+
+    .schedules-section {
+      h2 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+      }
+
+      .schedule-card {
+        padding: 10px 15px;
+
+        p {
+          font-size: 15px;
+        }
+
+        .delete-button {
+          padding: 0.35em 0.6em; // Slightly larger padding for easier tapping
+          font-size: 0.9em; // Keep font size consistent or slightly adjust
+        }
+      }
     }
   }
 }

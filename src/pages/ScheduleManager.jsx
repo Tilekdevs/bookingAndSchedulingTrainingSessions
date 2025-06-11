@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { createTrainerScheduleItem, fetchTrainerSchedule } from '../api'
+import { createTrainerScheduleItem, fetchTrainerSchedule, deleteTrainerScheduleItem } from '../api'
 import '../assets/styles/ScheduleManager.scss'
 import { useAuth } from '../context/AuthContext'
 
@@ -50,6 +50,17 @@ export default function ScheduleManager() {
 			setSchedules(data)
 		} catch (err) {
 			toast.error('Ошибка при добавлении расписания')
+		}
+	}
+
+	const handleDelete = async scheduleId => {
+		try {
+			await deleteTrainerScheduleItem(scheduleId, user.token)
+			const data = await fetchTrainerSchedule(user.token)
+			setSchedules(data)
+			toast.success('Расписание удалено')
+		} catch (err) {
+			toast.error('Ошибка при удалении расписания')
 		}
 	}
 
@@ -105,6 +116,7 @@ export default function ScheduleManager() {
 							<p>
 								<strong>Время:</strong> {schedule.time}
 							</p>
+							<button onClick={() => handleDelete(schedule.id)} className='delete-button'>Удалить</button>
 						</div>
 					))
 				)}

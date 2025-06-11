@@ -51,3 +51,24 @@
   background-color: #bdc3c7;
   cursor: not-allowed;
 }
+
+@media (max-width: 420px) {
+  .login-container {
+    margin: 40px auto;
+    padding: 24px 15px;
+  }
+
+  .login-title {
+    font-size: 22px; // Reduced from 24px
+  }
+
+  .login-input {
+    font-size: 15px; // Reduced from 16px
+    padding: 9px;    // Slightly reduced padding
+  }
+
+  .login-button {
+    font-size: 15px; // Reduced from 16px
+    padding: 11px;   // Slightly reduced padding
+  }
+}

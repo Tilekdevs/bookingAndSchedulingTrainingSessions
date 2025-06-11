@@ -75,3 +75,31 @@
 .register-login-link a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 420px) {
+  .register-form {
+    padding: 25px 15px; // Reduced horizontal padding
+  }
+
+  .register-title {
+    font-size: 22px; // Reduced from 24px
+  }
+
+  .input-label {
+    font-size: 0.95em; // Slightly smaller if needed, or adjust as per visual testing
+  }
+
+  .register-input { // Applies to text inputs and select
+    font-size: 15px; // Reduced from 16px
+    padding: 9px;    // Slightly reduced padding
+  }
+
+  .register-button {
+    font-size: 15px; // Reduced from 16px
+    padding: 9px;    // Slightly reduced padding
+  }
+
+  .register-login-link {
+    font-size: 0.9em; // Reduced font size for the link text
+  }
+}
