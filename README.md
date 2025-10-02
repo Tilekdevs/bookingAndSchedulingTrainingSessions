@@ -1,8 +1,20 @@
-# React + Vite
+**⚠️ Важно:** на данный момент бэкенд может быть неактивен или не развернут, поэтому проект **не работает в полном объёме** до восстановления API.
+## Описание проекта
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект служит системой для бронирования и планирования тренировочных сессий.  
+Клиентская часть (фронтенд) взаимодействует с сервером (API), чтобы:
 
-Currently, two official plugins are available:
+- Просматривать доступные тренировки / тренеров  
+- Создавать бронирования  
+- Управлять собственными записями  
+- Авторизоваться / регистрироваться  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Когда бэкенд работает, всё это должно быть функциональным.
+
+## Технологии
+- Frontend: React
+- HTTP-клиент: axios
+- JWT / sessions — авторизация  
+
+## Установка и запуск
+npm run dev
